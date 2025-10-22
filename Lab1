@@ -1,0 +1,40 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" conent="width=device=width, initial=scale=1.0">
+
+    <title> Regestration Form </title>
+</head>
+
+<body>
+    <h2>Regestration form</h2>
+    <!-- Name Field-->
+    <form action="/register" mwthod="POST">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+        <!-- Email Field-->
+        <label for="email">Emai:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <!-- Password Field-->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="passwrods" required><br><br>
+        <!-- confirm password Field-->
+        <label for="confirm password">Confirm Password:</label>
+        <input type="confirm password" id="confirm password" name="confirm password" required><br><br>
+
+        <!-- Gender Field-->
+
+        <label for="gender">Gender :</label>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male :</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female :</label><br><br>
+
+
+
+
+</body>
+
+</html>
