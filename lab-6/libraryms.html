@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+    button {
+      padding: 6px 12px;
+      margin: 10px 0;
+    }
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Library Management System</h2>
+
+  <label for="title">Book Title:</label>
+  <input type="text" id="title" placeholder="Enter title"><br>
+
+  <label for="year">Publication Year:</label>
+  <input type="text" id="year" placeholder="Enter year"><br>
+
+  <button id="addBookBtn">Add Book</button>
+
+  <div id="error" class="error"></div>
+
+  <table id="bookTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Book entries will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById('addBookBtn').addEventListener('click', function () {
+      const title = document.getElementById('title').value.trim();
+      const year = document.getElementById('year').value.trim();
+      const errorDiv = document.getElementById('error');
+      const currentYear = new Date().getFullYear();
+
+      const titleRegex = /^[A-Za-z]+$/;
+      const yearRegex = /^\d{4}$/;
+
+      if (!title || !titleRegex.test(title)) {
+        errorDiv.textContent = "Title must contain only alphabetic characters without spaces.";
+        return;
+      }
+
+      if (!yearRegex.test(year) || year < 1900 || year > currentYear) {
+        errorDiv.textContent = `Year must be a four-digit number between 1900 and ${currentYear}.`;
+        return;
+      }
+
+      errorDiv.textContent = "";
+
+      const tableBody = document.getElementById('bookTable').getElementsByTagName('tbody')[0];
+      const newRow = tableBody.insertRow();
+      const titleCell = newRow.insertCell(0);
+      const yearCell = newRow.insertCell(1);
+
+      titleCell.textContent = title;
+      yearCell.textContent = year;
+
+      newRow.style.backgroundColor = year < 2000 ? '#d3d3d3' : '#90ee90';
+
+      document.getElementById('title').value = '';
+      document.getElementById('year').value = '';
+    });
+  </script>
+
+</body>
+</html>
