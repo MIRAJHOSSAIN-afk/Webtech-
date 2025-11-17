@@ -1,0 +1,116 @@
+/* ---------- General Page Setup ---------- */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(120deg, #e3f2fd, #bbdefb);
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Header ---------- */
+header {
+    text-align: center;
+    background-color: #1565c0;
+    color: white;
+    padding: 20px 10px;
+    border-bottom: 5px solid #0d47a1;
+}
+
+/* ---------- Form Container ---------- */
+.admission-form {
+    background-color: #fff;
+    width: 60%;
+    margin: 40px auto;
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* ---------- Fieldsets ---------- */
+fieldset {
+    border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f9fbff;
+}
+
+legend {
+    font-weight: bold;
+    color: #0d47a1;
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+/* ---------- Labels and Inputs ---------- */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+}
+
+input:focus,
+select:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(25,118,210,0.3);
+}
+
+/* ---------- Radio & Checkbox Groups ---------- */
+.radio-group label,
+fieldset label input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+/* ---------- Buttons ---------- */
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="reset"] {
+    background-color: #c62828;
+}
+
+input[type="submit"]:hover {
+    background-color: #0d47a1;
+}
+
+input[type="reset"]:hover {
+    background-color: #8e0000;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    background-color: #1565c0;
+    color: white;
+    padding: 15px;
+    border-top: 5px solid #0d47a1;
+}
