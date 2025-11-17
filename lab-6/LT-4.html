@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TasteHub Restaurant Menu</title>
+  <meta name="author" content="Miraj">
+  <meta name="description" content="TasteHub - Explore our mouth-watering restaurant menu with starters, main course, desserts, and drinks.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Optional basic styling for clarity (keep or remove as needed) -->
+  <style>
+    :root {
+      --accent: #c0392b;
+      --dark: #2c3e50;
+      --light: #f7f7f7;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 24px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: var(--dark);
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    .tagline {
+      margin: 4px 0 12px;
+      color: #dfe6e9;
+      font-size: 0.95rem;
+    }
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    main {
+      max-width: 1080px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+    section {
+      background: var(--light);
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    section + section {
+      margin-top: 20px;
+    }
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    article.menu-item {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .menu-item img {
+      width: 96px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #f0f0f0;
+    }
+    .menu-item h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .menu-item p {
+      margin: 4px 0 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .price {
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+    .back-top {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .back-top:hover {
+      text-decoration: underline;
+    }
+    fieldset.specials {
+      border: 2px dashed var(--accent);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff7f6;
+    }
+    legend {
+      color: var(--accent);
+      font-weight: 700;
+      padding: 0 8px;
+    }
+    aside {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 16px;
+      position: sticky;
+      top: 108px;
+      height: fit-content;
+    }
+    aside h3 {
+      margin-top: 0;
+      color: #444;
+    }
+    aside ul {
+      list-style: disc;
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 20px 0;
+    }
+    .cta {
+      margin-top: 16px;
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .cta:hover {
+      background: #a93226;
+    }
+    footer {
+      margin-top: 24px;
+      background: #111;
+      color: #ddd;
+      padding: 24px 16px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+    .social {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .social a {
+      color: #ddd;
+      text-decoration: none;
+      border: 1px solid #333;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .social a:hover {
+      background: #222;
+    }
+    .footer-top {
+      margin-top: 6px;
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .footer-top:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body id="top">
+  <header>
+    <div class="header-inner">
+      <div class="logo" aria-label="TasteHub logo">TH</div>
+      <div>
+        <h1>TasteHub Restaurant</h1>
+        <div class="tagline">Deliciousness Delivered Fresh Every Day!</div>
+        <nav aria-label="Menu navigation">
+          <a href="#starters">Starters</a>
+          <a href="#maincourse">Main Course</a>
+          <a href="#desserts">Desserts</a>
+          <a href="#drinks">Drinks</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Left: Menu sections -->
+    <div>
+      <!-- Chef's Special (optional) -->
+      <section id="chefs-special">
+        <fieldset class="specials">
+          <legend>Chef’s Special</legend>
+          <ul class="menu-list">
+            <li>
+              <article class="menu-item">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop" alt="Truffle mushroom risotto">
+                <div>
+                  <h3><strong>Truffle Mushroom Risotto</strong></h3>
+                  <p>Creamy Arborio rice with wild mushrooms, finished with white truffle oil.</p>
+                </div>
+                <div class="price">$18.99</div>
+              </article>
+            </li>
+            <li>
+              <article class="menu-item">
+                <img src="https://images.unsplash.com/photo-1604908176997-4314c877df32?q=80&w=400&auto=format&fit=crop" alt="Garlic butter steak">
+                <div>
+                  <h3><strong>Garlic Butter Steak</strong></h3>
+                  <p>Juicy sirloin seared and basted with garlic-herb butter, served with roasted potatoes.</p>
+                </div>
+                <div class="price">$24.50</div>
+              </article>
+            </li>
+            <li>
+              <article class="menu-item">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Citrus glazed salmon">
+                <div>
+                  <h3><strong>Citrus Glazed Salmon</strong></h3>
+                  <p>Pan-seared salmon with orange-lime glaze, seasonal greens on the side.</p>
+                </div>
+                <div class="price">$21.00</div>
+              </article>
+            </li>
+          </ul>
+        </fieldset>
+        <a class="back-top" href="#top">Back to Top</a>
+      </section>
+
+      <hr>
+
+      <!-- Starters -->
+      <section id="starters" aria-labelledby="starters-heading">
+        <h2 id="starters-heading">Starters</h2>
+        <ul class="menu-list">
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81136?q=80&w=400&auto=format&fit=crop" alt="Classic bruschetta">
+              <div>
+                <h3><strong>Classic Bruschetta</strong></h3>
+                <p>Toasted baguette topped with marinated tomatoes, basil, and olive oil.</p>
+              </div>
+              <div class="price">$7.99</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1604908553599-459ddcfb1ca8?q=80&w=400&auto=format&fit=crop" alt="Crispy calamari">
+              <div>
+                <h3><strong>Crispy Calamari</strong></h3>
+                <p>Lightly fried squid with lemon aioli and chili flakes.</p>
+              </div>
+              <div class="price">$9.50</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1562967916-0e5f3e2af3d4?q=80&w=400&auto=format&fit=crop" alt="Caesar salad">
+              <div>
+                <h3><strong>Caesar Salad</strong></h3>
+                <p>Crisp romaine, parmesan, croutons, and house Caesar dressing.</p>
+              </div>
+              <div class="price">$8.25</div>
+            </article>
+          </li>
+        </ul>
+        <a class="back-top" href="#top">Back to Top</a>
+      </section>
+
+      <hr>
+
+      <!-- Main Course -->
+      <section id="maincourse" aria-labelledby="maincourse-heading">
+        <h2 id="maincourse-heading">Main Course</h2>
+        <ul class="menu-list">
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Grilled chicken platter">
+              <div>
+                <h3><strong>Grilled Chicken Platter</strong></h3>
+                <p>Herb-marinated chicken breast with buttered veggies and garlic rice.</p>
+              </div>
+              <div class="price">$14.99</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1608750051727-5509ce0f2df7?q=80&w=400&auto=format&fit=crop" alt="Spinach Alfredo pasta">
+              <div>
+                <h3><strong>Spinach Alfredo Pasta</strong></h3>
+                <p>Fettuccine tossed in creamy Alfredo, spinach, and parmesan.</p>
+              </div>
+              <div class="price">$13.50</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1562967916-0e5f3e2af3d4?q=80&w=400&auto=format&fit=crop" alt="Veggie bowl">
+              <div>
+                <h3><strong>Roasted Veggie Bowl</strong></h3>
+                <p>Seasonal vegetables with quinoa, hummus, and tahini drizzle.</p>
+              </div>
+              <div class="price">$12.25</div>
+            </article>
+          </li>
+        </ul>
+        <a class="back-top" href="#top">Back to Top</a>
+      </section>
+
+      <hr>
+
+      <!-- Desserts -->
+      <section id="desserts" aria-labelledby="desserts-heading">
+        <h2 id="desserts-heading">Desserts</h2>
+        <ul class="menu-list">
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1541781407591-51e2b3e1d59d?q=80&w=400&auto=format&fit=crop" alt="Chocolate lava cake">
+              <div>
+                <h3><strong>Chocolate Lava Cake</strong></h3>
+                <p>Warm chocolate cake with gooey center, served with vanilla ice cream.</p>
+              </div>
+              <div class="price">$6.99</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=400&auto=format&fit=crop" alt="Classic tiramisu">
+              <div>
+                <h3><strong>Classic Tiramisu</strong></h3>
+                <p>Layers of espresso-soaked ladyfingers and mascarpone cream.</p>
+              </div>
+              <div class="price">$7.50</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop" alt="Berry cheesecake">
+              <div>
+                <h3><strong>Berry Cheesecake</strong></h3>
+                <p>Rich baked cheesecake topped with mixed berry compote.</p>
+              </div>
+              <div class="price">$7.25</div>
+            </article>
+          </li>
+        </ul>
+        <a class="back-top" href="#top">Back to Top</a>
+      </section>
+
+      <hr>
+
+      <!-- Drinks -->
+      <section id="drinks" aria-labelledby="drinks-heading">
+        <h2 id="drinks-heading">Drinks</h2>
+        <ul class="menu-list">
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6cf7?q=80&w=400&auto=format&fit=crop" alt="Fresh lemonade">
+              <div>
+                <h3><strong>Fresh Lemonade</strong></h3>
+                <p>Hand-squeezed lemons with mint and a touch of syrup.</p>
+              </div>
+              <div class="price">$3.99</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=400&auto=format&fit=crop" alt="Iced coffee">
+              <div>
+                <h3><strong>Iced Coffee</strong></h3>
+                <p>Cold-brew served over ice with optional milk.</p>
+              </div>
+              <div class="price">$4.50</div>
+            </article>
+          </li>
+          <li>
+            <article class="menu-item">
+              <img src="https://images.unsplash.com/photo-1529059997561-3a2c19b3a27e?q=80&w=400&auto=format&fit=crop" alt="Sparkling water">
+              <div>
+                <h3><strong>Sparkling Water</strong></h3>
+                <p>Crisp, refreshing, chilled. Choose lime or plain.</p>
+              </div>
+              <div class="price">$2.50</div>
+            </article>
+          </li>
+        </ul>
+
+        <a class="back-top" href="#top">Back to Top</a>
+        <div style="margin-top: 16px;">
+          <a class="cta" href="#">Book a Table</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right: Daily offers -->
+    <aside aria-label="Daily offers">
+      <h3>Daily Offers</h3>
+      <ul>
+        <li><strong>Lunch Combo:</strong> Bruschetta + Pasta + Lemonade — $19.99</li>
+        <li><strong>Sweet Hour (4–6 PM):</strong> Any dessert — $5.50</li>
+        <li><strong>Family Platter:</strong> Serves 4 — $49.99</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Address:</strong> 123 Flavor Street, Dhaka, Bangladesh
+      </div>
+      <div>
+        <strong>Contact:</strong> +880-1234-567890
+      </div>
+      <div>
+        <strong>Opening Hours:</strong> Sat–Thu: 11:00 AM – 10:00 PM | Friday: 4:00 PM – 11:00 PM
+      </div>
+
+      <div class="social" aria-label="Social links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </div>
+
+      <div>
+        © 2025 TasteHub Restaurant | All Rights Reserved
+      </div>
+
+      <a class="footer-top" href="#top">Back to Top</a>
+    </div>
+  </footer>
+</body>
+</html>
