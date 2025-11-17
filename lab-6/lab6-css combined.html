@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Tasks: Navbar + Products + Contact Widget</title>
+
+    <style>
+        /* -----------------------------
+           TASK 03: NAVIGATION BAR
+        ------------------------------*/
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            background-color: #555;
+            color: yellow;
+            border-radius: 5px;
+        }
+
+        /* -----------------------------
+           TASK 04: PRODUCT BOXES
+        ------------------------------*/
+        .product-box {
+            width: 250px;
+            display: inline-block;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 15px;
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .product-box img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .product-box:hover {
+            outline: 3px solid #007bff;
+            outline-offset: 5px;
+        }
+        .buy-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        .buy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* -----------------------------
+           TASK 05: FIXED CONTACT WIDGET
+        ------------------------------*/
+        .contact-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #0056b3;
+            z-index: 9999;
+            width: 180px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .contact-widget:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+        .contact-widget a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        /* Body padding for cleaner layout */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- TASK 03: Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- TASK 04: Product Section -->
+    <h2 style="text-align:center; margin-top:20px;">Our Products</h2>
+
+    <div class="product-box">
+        <img src="https://via.placeholder.com/120" alt="Laptop">
+        <h3>Laptop</h3>
+        <p>High-performance laptop suitable for multitasking.</p>
+        <h4>$999</h4>
+        <a href="#" class="buy-btn">Buy Now</a>
+    </div>
+
+    <div class="product-box">
+        <img src="https://via.placeholder.com/120" alt="Headphones">
+        <h3>Headphones</h3>
+        <p>Wireless headphones with noise cancellation.</p>
+        <h4>$199</h4>
+        <a href="#" class="buy-btn">Buy Now</a>
+    </div>
+
+    <div class="product-box">
+        <img src="https://via.placeholder.com/120" alt="Smartwatch">
+        <h3>Smartwatch</h3>
+        <p>Track your fitness and stay connected on the go.</p>
+        <h4>$149</h4>
+        <a href="#" class="buy-btn">Buy Now</a>
+    </div>
+
+    <!-- TASK 05: Fixed Contact Widget -->
+    <div class="contact-widget">
+        <strong>Contact Us</strong><br>
+        📞 +880123456789<br>
+        ✉️ <a href="mailto:support@example.com">support@example.com</a>
+    </div>
+
+</body>
+</html>
